@@ -1,0 +1,39 @@
+body
+{
+	background-color: #228734
+}
+
+#Pad
+{
+	
+}
+#Palette
+{
+	background-color:white;
+	position:absolute;
+	left:1000px;
+	top:100px;
+}
+#Player
+{
+	background-color:white;
+	position:absolute;
+	left:700px;
+	top:500px;
+}
+
+.pixel
+{
+	float:left;
+	background-color:transparent;
+	outline:1px solid black;
+}
+.paintBlob
+{
+	float:left;
+	outline:1px solid black;
+}
+.playerPixel
+{
+	float:left;
+}

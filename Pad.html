@@ -1,0 +1,37 @@
+<html>
+
+<head>
+	<title>Sprite Pad</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="PadStyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="Objects/oPad.js"></script>
+	<script type="text/javascript" src="Objects/oPixel.js"></script>
+	<script type="text/javascript" src="Objects/oPalette.js"></script>
+	<script type="text/javascript" src="Objects/oPaintBlob.js"></script>
+	<script type="text/javascript" src="Objects/oPaintBrush.js"></script>
+	<script type="text/javascript" src="Objects/oPicker.js"></script>
+	<script type="text/javascript" src="Objects/oPlayer.js"></script>
+	
+</head>
+
+<body>
+	<div id="Pad"></div>
+	<div id="Palette"></div>
+	<div id="Player"></div>
+	
+	
+	<!--Temporary Frame Selection-->
+	<span id="numOfFrames">1</span>
+	<input id="selection" type="text"/>
+	<input type="button" value="Select" onclick="pick()"/>
+	<input type="button" value="+" onclick="add()"/>
+	<input type="button" value="-" onclick="del()"/>
+	<!--Temporary Frame Selection-->
+	
+</body>
+
+<script type="text/javascript" src="PadJS.js"></script>
+<script type="text/javascript" src="MouseHandler.js"></script>
+
+</html>
