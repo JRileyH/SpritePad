@@ -6,6 +6,7 @@ var brush = new oPaintBrush();
 
 player.rescale(10);
 
+/*
 //Example Setup//
 //ONE//
 pad.pixels()[pad.findPixel(7, 1)].setColor("#000000");
@@ -84,6 +85,7 @@ pad.pixels()[pad.findPixel(8, 13)].setColor("#000000");
 
 pad.selectFrame(0);
 //Example Setup//
+*/
 
 console.log("PadJS Loaded");
 
@@ -96,5 +98,102 @@ function add()
 function del()
 {
 	pad.removeFrame();
+}
+function save()
+{
+	if(loggedIn)
+	{
+		var contents = JSON.stringify(pad.trimmedArray());
+		$.ajax(
+		{
+			url:'SavePad.php',
+			type:'post',
+			data:
+			{
+				file:$('#FileName').val(),
+				user:userName,
+				json:contents
+			},
+			success: function(data)
+			{
+				alert("Saved to SleepyFish Server!");
+			},
+			error: function(data)
+			{
+				alert(data.status + "\n" + data.responseText);
+			}
+		});
+	}
+	else
+	{
+		alert("you must log in to do that...");
+	}
+	
+}
+
+function scan()
+{
+	if(loggedIn)
+	{
+		$.ajax(
+		{
+			url:'ScanPad.php',
+			type:'post',
+			data:
+			{
+				file:$('#FileName').val(),
+				user:userName,
+			},
+			success: function(data)
+			{
+				$('#ScannedFiles').html(data);
+			},
+			error: function(data)
+			{
+				alert(data.status + "\n" + data.responseText);
+			}
+		});
+	}
+	else
+	{
+		alert("you must log in to do that...");
+	}
+}
+
+function load(filePath)
+{
+	$('#ScannedFiles').empty();
+	if(loggedIn)
+	{
+		$.ajax(
+		{
+			url:'LoadPad.php',
+			type:'post',
+			data:
+			{
+				file:filePath
+			},
+			success: function(data)
+			{
+				pad.load(data);
+			},
+			error: function(data)
+			{
+				alert(data.status + "\n" + data.responseText);
+			}
+		});
+	}
+	else
+	{
+		alert("you must log in to do that...");
+	}
+	
+}
+function download()
+{
+	$('#DownloadLink').remove();
+	var json = JSON.stringify(pad.trimmedArray());
+	var data = "text/json;charset=utf-8,"+encodeURIComponent(json);
+	$('<a id="DownloadLink" href="data:'+data+'" download="'+$('#FileName').val()+'.json">Download</a>').appendTo('#ButtonBox');
 }
 //<!--Temporary Frame Selection-->//

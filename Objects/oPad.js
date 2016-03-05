@@ -36,6 +36,26 @@ oPad.prototype.pixels = function(s){if(typeof s === 'undefined'){return this._fr
 oPad.prototype.numberOfFrames = function(){return this._frames.length}
 oPad.prototype.element = function(){return this._div;}
 
+oPad.prototype.trimmedArray = function()
+{
+	var frames = [];
+	for(var f = 0; f < this.numberOfFrames(); f++)
+	{
+		var pixels = [];
+		var frame = this.pixels(f);
+		for(var y = 0; y < this._h; y++)
+		{
+			for(var x = 0; x < this._w; x++)
+			{
+				var id = this.findPixel(x, y);
+				pixels.push(frame[id].color());
+			}
+		}
+		frames.push(pixels);
+	}
+	return frames;
+}
+
 oPad.prototype.selectFrame = function(p)
 {
 	if(p >= 0 && p < this.numberOfFrames())
@@ -99,6 +119,25 @@ oPad.prototype.reload = function()
 	{
 		$("#"+index).css("background-color", element.color());
 	});
+}
+
+oPad.prototype.load = function(data)
+{
+	var json = $.parseJSON(data);
+	this._frames = [];
+	picker.element().empty();
+	
+	for(var f = 0; f < json.length; f++)
+	{
+		var frame = json[f];
+		pad.addFrame();
+		pad.selectFrame(f);
+		for(var p = 0; p < frame.length; p++)
+		{
+			var color = frame[p];
+			pad.pixels()[p].setColor(color);
+		}
+	}
 }
 
 oPad.prototype.clear = function()
