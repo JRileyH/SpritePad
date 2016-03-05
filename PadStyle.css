@@ -21,7 +21,22 @@ body
 	left:700px;
 	top:500px;
 }
+#Picker
+{
+	background-color:gray;
+	position:absolute;
+	left:100px;
+	top:700px;
+}
 
+.panel
+{
+	float:left;
+	background-color:blue;
+	outline:1px solid black;
+	width:50px;
+	height:50px;
+}
 .pixel
 {
 	float:left;

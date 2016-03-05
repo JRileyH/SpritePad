@@ -10,19 +10,19 @@ function oPad(w, h, pw, ph, div)
 	
 	div.css("width", String(w*pw)+'px');
 	div.css("height", String(h*ph)+'px');
-		
+	
+	this.addFrame();
+	this.selectFrame(0);
+	
 	var htmlStr = "";
-	var pixels = [];
 	for(var y = 0; y < h; y++)
 	{
 		for(var x = 0; x < w; x++)
 		{
 			var id = (x+(y*w));
-			pixels.push(new oPixel(x, y, pw, ph, id));
 			htmlStr = htmlStr + "<div id='"+id+"' class='pixel'></div>";
 		}
 	}
-	this._frames.push(pixels);
 	div.html(htmlStr);
 	$('.pixel').css("width", String(pw));
 	$('.pixel').css("height", String(ph));
@@ -40,6 +40,8 @@ oPad.prototype.selectFrame = function(p)
 {
 	if(p >= 0 && p < this.numberOfFrames())
 	{
+		$('.panel').css("background-color", "blue");
+		picker.element().children().eq(p).css("background-color", "red");
 		this._selected = p;
 		this.reload();
 	}
@@ -51,6 +53,7 @@ oPad.prototype.selectFrame = function(p)
 
 oPad.prototype.addFrame = function()
 {
+	picker.add();
 	var pixels = [];
 	for(var y = 0; y < this._h; y++)
 	{
@@ -61,18 +64,17 @@ oPad.prototype.addFrame = function()
 		}
 	}
 	this._frames.push(pixels);
-	$('#numOfFrames').text(this.numberOfFrames());
 }
 
 oPad.prototype.removeFrame = function(f)
 {
 	if(this.numberOfFrames()>1)
 	{
-		if(f => 0 && f < this.numberOfFrames())
+		picker.remove();
+		if(this.numberOfFrames() > 1)
 		{
-			this._frames.splice(f, 1);
-			if(this._selected >= f && this._selected != 0){this.selectFrame(this._selected-1);}else{this.reload();}
-			$('#numOfFrames').text(this.numberOfFrames());
+			this._frames.splice(this._selected, 1);
+			if(this._selected != 0){this.selectFrame(this._selected-1);}else{this.reload();}
 		}
 		else
 		{

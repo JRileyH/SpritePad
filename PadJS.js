@@ -1,4 +1,4 @@
-
+var picker = new oPicker($('#Picker'));
 var pad = new oPad(16, 16, 40, 40, $('#Pad'));
 var palette = new oPalette(200, 200, $('#Palette'), ["#ff0000", "#aa6fd0", "#0cc0ff", "#ff00ff", "transparent", "#00f330", "#00333f", "#cccf00", "#0330ff", "#5326ad"]);
 var player = new oPlayer($('#Player'));
@@ -89,16 +89,12 @@ console.log("PadJS Loaded");
 
 
 //<!--Temporary Frame Selection-->//
-function pick()
-{
-	pad.selectFrame($('#selection').val());
-}
 function add()
 {
 	pad.addFrame();
 }
 function del()
 {
-	pad.removeFrame($('#selection').val());
+	pad.removeFrame();
 }
 //<!--Temporary Frame Selection-->//
