@@ -6,7 +6,7 @@
 	<title>Sprite Pad</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="PadStyle.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="../JS/jquery.js"></script>
 	<script type="text/javascript" src="Objects/oPad.js"></script>
 	<script type="text/javascript" src="Objects/oPixel.js"></script>
 	<script type="text/javascript" src="Objects/oPalette.js"></script>
@@ -17,6 +17,7 @@
 	<script type="text/javascript">
 		var loggedIn = false;
 		var userName = "";
+		var colors = [];
 	</script>
 </head>
 
@@ -28,6 +29,25 @@
 			<script type="text/javascript">
 				loggedIn = true;
 				userName = <?php echo '"'.$_SESSION['USER'].'"' ?>;
+				$.ajax(
+				{
+					url:'LoadColors.php',
+					type:'post',
+					data:
+					{
+						user:userName
+					},
+					success: function(data)
+					{
+						if(data === "newbie"){window.location = 'PadSetup.php';}
+						colors = $.parseJSON(data);
+						palette = new oPalette(200, 200, $('#Palette'), colors);
+					},
+					error: function(data)
+					{
+						alert(data.status + "\n" + data.responseText);
+					}
+				});
 			</script>
 		<?php 
 		}
@@ -61,8 +81,9 @@
 	<!--Temporary Frame Selection-->
 	
 </body>
-
-<script type="text/javascript" src="PadJS.js"></script>
+	
 <script type="text/javascript" src="MouseHandler.js"></script>
+<script type="text/javascript" src="PadJS.js"></script>
+
 
 </html>

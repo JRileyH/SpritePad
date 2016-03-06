@@ -1,10 +1,12 @@
-var picker = new oPicker($('#Picker'));
-var pad = new oPad(16, 16, 40, 40, $('#Pad'));
-var palette = new oPalette(200, 200, $('#Palette'), ["#ff0000", "#aa6fd0", "#0cc0ff", "#ff00ff", "transparent", "#00f330", "#00333f", "#cccf00", "#0330ff", "#5326ad"]);
-var player = new oPlayer($('#Player'));
-var brush = new oPaintBrush();
 
-player.rescale(10);
+	var picker = new oPicker($('#Picker'));
+	var pad = new oPad(16, 16, 40, 40, $('#Pad'));
+	var palette = new oPalette(200, 200, $('#Palette'), ["#000000", "#FFFFFF", "transparent", "#FF0000", "#00FF00", "#0000FF"]);
+	var player = new oPlayer($('#Player'));
+	var brush = new oPaintBrush();
+
+	player.rescale(10);
+
 
 /*
 //Example Setup//
@@ -101,32 +103,39 @@ function del()
 }
 function save()
 {
-	if(loggedIn)
+	if($('#FileName').val().length > 0)
 	{
-		var contents = JSON.stringify(pad.trimmedArray());
-		$.ajax(
+		if(loggedIn)
 		{
-			url:'SavePad.php',
-			type:'post',
-			data:
+			var contents = JSON.stringify(pad.trimmedArray());
+			$.ajax(
 			{
-				file:$('#FileName').val(),
-				user:userName,
-				json:contents
-			},
-			success: function(data)
-			{
-				alert("Saved to SleepyFish Server!");
-			},
-			error: function(data)
-			{
-				alert(data.status + "\n" + data.responseText);
-			}
-		});
+				url:'SavePad.php',
+				type:'post',
+				data:
+				{
+					file:$('#FileName').val(),
+					user:userName,
+					json:contents
+				},
+				success: function(data)
+				{
+					alert("Saved to SleepyFish Server!");
+				},
+				error: function(data)
+				{
+					alert(data.status + "\n" + data.responseText);
+				}
+			});
+		}
+		else
+		{
+			alert("You must log in to do that...");
+		}
 	}
 	else
 	{
-		alert("you must log in to do that...");
+		alert("Name your project first!");	
 	}
 	
 }
