@@ -1,6 +1,0 @@
-
-var Pad = new oPad(4, 8, $('#Pad'));
-
-Pad.init();
-
-console.log("PadJS Loaded");
