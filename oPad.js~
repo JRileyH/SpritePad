@@ -1,0 +1,49 @@
+function oPad(w, h, pw, ph, div)
+{
+	this._w = w;
+	this._h = h;
+	this._pw = pw;
+	this._ph = ph;
+	this._pixels = [];
+	this._div = div;
+	
+	div.css("width", String(w*pw)+'px');
+	div.css("height", String(h*ph)+'px');
+		
+	var htmlStr = "";
+	for(var y = 0; y < h; y++)
+	{
+		for(var x = 0; x < w; x++)
+		{
+			var id = (x+(y*w));
+			this._pixels.push(new Tile(x, y, pw, ph, id));
+			htmlStr = htmlStr + "<div id='"+id+"' class='pixel'></div>";
+		}
+	}
+	div.html(htmlStr);
+	$('.pixel').css("width", String(pw));
+	$('.pixel').css("height", String(ph));
+}
+
+oPad.prototype.findPixel = function(x, y)
+{
+	return (x+(y*this._w));
+}
+
+oPad.prototype.CLEAR = function()
+{
+	
+	$('.pixel').css("background-color", "transparent");
+	$('.pixel').empty();
+	this._pixels.forEach(function(element, index, array)
+	{
+		//element.setWALKABLE(false);
+	});
+}
+
+oPad.prototype.padW = function(){return this._w;}
+oPad.prototype.padH = function(){return this._h;}
+oPad.prototype.tileW = function(){return this._tw;}
+oPad.prototype.tileH = function(){return this._th;}
+oPad.prototype.pixels = function(){return this._pixels;}
+oPad.prototype.element = function(){return this._div;}

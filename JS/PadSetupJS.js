@@ -57,7 +57,7 @@ function saveColors()
 	{
 		$.ajax(
 		{
-			url:'SaveColors.php',
+			url:'PHP/SaveColors.php',
 			type:'post',
 			data:
 			{

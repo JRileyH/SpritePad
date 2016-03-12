@@ -110,7 +110,7 @@ function save()
 			var contents = JSON.stringify(pad.trimmedArray());
 			$.ajax(
 			{
-				url:'SavePad.php',
+				url:'PHP/SavePad.php',
 				type:'post',
 				data:
 				{
@@ -146,20 +146,20 @@ function scan()
 	{
 		$.ajax(
 		{
-			url:'ScanPad.php',
+			url:'PHP/ScanPad.php',
 			type:'post',
 			data:
 			{
-				file:$('#FileName').val(),
-				user:userName,
+				user:userName
 			},
 			success: function(data)
 			{
+				alert(data);
 				$('#ScannedFiles').html(data);
 			},
 			error: function(data)
 			{
-				alert(data.status + "\n" + data.responseText);
+				alert("PadJS.scan() Failure: "+data.status + "\n" + data.responseText);
 			}
 		});
 	}
@@ -176,7 +176,7 @@ function load(filePath)
 	{
 		$.ajax(
 		{
-			url:'LoadPad.php',
+			url:'PHP/LoadPad.php',
 			type:'post',
 			data:
 			{

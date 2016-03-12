@@ -5,15 +5,15 @@
 <head>
 	<title>Sprite Pad</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="PadStyle.css">
+	<link rel="stylesheet" type="text/css" href="CSS/PadStyle.css">
 	<script src="../JS/jquery.js"></script>
-	<script type="text/javascript" src="Objects/oPad.js"></script>
-	<script type="text/javascript" src="Objects/oPixel.js"></script>
-	<script type="text/javascript" src="Objects/oPalette.js"></script>
-	<script type="text/javascript" src="Objects/oPaintBlob.js"></script>
-	<script type="text/javascript" src="Objects/oPaintBrush.js"></script>
-	<script type="text/javascript" src="Objects/oPicker.js"></script>
-	<script type="text/javascript" src="Objects/oPlayer.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPad.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPixel.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPalette.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPaintBlob.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPaintBrush.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPicker.js"></script>
+	<script type="text/javascript" src="JS/Objects/oPlayer.js"></script>
 	<script type="text/javascript">
 		var loggedIn = false;
 		var userName = "";
@@ -31,7 +31,7 @@
 				userName = <?php echo '"'.$_SESSION['USER'].'"' ?>;
 				$.ajax(
 				{
-					url:'LoadColors.php',
+					url:'PHP/LoadColors.php',
 					type:'post',
 					data:
 					{
@@ -39,6 +39,7 @@
 					},
 					success: function(data)
 					{
+						console.log(data);
 						if(data === "newbie"){window.location = 'PadSetup.php';}
 						colors = $.parseJSON(data);
 						palette = new oPalette(200, 200, $('#Palette'), colors);
@@ -82,8 +83,8 @@
 	
 </body>
 	
-<script type="text/javascript" src="MouseHandler.js"></script>
-<script type="text/javascript" src="PadJS.js"></script>
+<script type="text/javascript" src="JS/MouseHandler.js"></script>
+<script type="text/javascript" src="JS/PadJS.js"></script>
 
 
 </html>

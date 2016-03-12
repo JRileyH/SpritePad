@@ -5,14 +5,14 @@
 <head>
 	<title>Sprite Pad - Setup</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="PadStyle.css">
-	<link rel="stylesheet" type="text/css" href="PadSetupStyle.css">
+	<link rel="stylesheet" type="text/css" href="CSS/PadStyle.css">
+	<link rel="stylesheet" type="text/css" href="CSS/PadSetupStyle.css">
 	<script src="../JS/jquery.js"></script>
 	<script type="text/javascript">
 		var loggedIn = false;
 		var userName = "";
 	</script>
-	<script type="text/javascript" src="PadSetupJS.js"></script>
+	<script type="text/javascript" src="JS/PadSetupJS.js"></script>
 </head>
 
 <body>

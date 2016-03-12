@@ -1,7 +1,9 @@
+
 <?php
+//<!--Called by #StartButton in PadSetup.php-->
 	$colors = $_POST['colors'];
 	$username = $_POST['user'];
-	$path = "../../sleepyfish/UserStorage/u_".$username."/SpritePads/";
+	$path = "../../../sleepyfish/UserStorage/u_".$username."/SpritePads/";
 
 	$file = fopen($path."colors.palette", "w");
 

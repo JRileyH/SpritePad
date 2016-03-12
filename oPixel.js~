@@ -1,0 +1,11 @@
+function oPixel(w, h, id)
+{
+	this._xDim = x;
+	this._yDim = y;
+	this._id = id;
+}
+
+oPixel.prototype.init = function()
+{
+	
+}

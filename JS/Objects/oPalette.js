@@ -32,6 +32,7 @@ function oPalette(w, h, div, colors)
 	div.css("height", this._h+"px");
 	$('.paintBlob').css("width", Math.floor(this._w/dim)+"px");
 	$('.paintBlob').css("height", Math.floor(this._h/dim)+"px");
+	setMouseHandler();
 }
 //Constants
 oPalette.prototype.blobs = function(){return this._blobs;}

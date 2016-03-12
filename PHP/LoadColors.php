@@ -1,6 +1,8 @@
+
 <?php
+//<!--Called by start up script in Pad.php-->
 	$username = $_POST['user'];
-	$path = "../../sleepyfish/UserStorage/u_".$username."/SpritePads/";
+	$path = "../../../sleepyfish/UserStorage/u_".$username."/SpritePads/";
 
 	if(file_exists($path."colors.palette"))
 	{

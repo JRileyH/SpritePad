@@ -1,0 +1,11 @@
+body
+{
+	background-color: #228734
+}
+.pixel
+{
+	background-color:white;
+	outline:1px solid black;
+	width:10px;
+	height:10px;
+}

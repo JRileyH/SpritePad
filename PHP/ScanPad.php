@@ -1,9 +1,10 @@
+
 <?php
-	$filename = $_POST['file'];
+//<!--called by scan() in PadJS.js-->
+//<!--Creates links to .spritepad files in u_folder-->
 	$username = $_POST['user'];
 
-	//$contents = scandir("../../sleepyfish/UserStorage/u_".$username."/SpritePads");
-	$contents = glob("../../sleepyfish/UserStorage/u_".$username."/SpritePads/*.spritepad", GLOB_BRACE);
+	$contents = glob("../../../sleepyfish/UserStorage/u_".$username."/SpritePads/*.spritepad", GLOB_BRACE);
 
 	if($contents === false)
 	{
@@ -13,6 +14,7 @@
 	{
 		foreach($contents as $file)
 		{
+			
 			$info = pathinfo($file);
 			echo "<input type='button' value='".$info['filename']."' onclick='load(\"".$file."\");'/><br>";	
 		}
