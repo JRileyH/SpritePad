@@ -1,4 +1,3 @@
-
 <?php
 //<!--Called by start up script in Pad.php-->
 	$username = $_POST['user'];
@@ -11,7 +10,6 @@
 	}
 	else
 	{
-		echo "newbie";
+		echo "newbies";
 	}
-
 ?>

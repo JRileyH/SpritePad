@@ -39,7 +39,6 @@
 					},
 					success: function(data)
 					{
-						console.log(data);
 						if(data === "newbie"){window.location = 'PadSetup.php';}
 						colors = $.parseJSON(data);
 						palette = new oPalette(200, 200, $('#Palette'), colors);
