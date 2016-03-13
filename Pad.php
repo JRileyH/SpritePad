@@ -65,20 +65,18 @@
 	<div id="Player"></div>
 	<div id="Picker"></div>
 	
-	
-	<!--Temporary Frame Selection-->
+	<!--TODO: make this buttonbox pretty-->
 	<div id="ButtonBox">
+		<input id="GhostOn" type="checkbox" value="Ghost" onchange="pad.reload()"/>Ghost
 		<input type="button" value="+" onclick="add()"/>
 		<input type="button" value="-" onclick="del()"/>
 
 		<input id="FileName" type="text"/>
-		<!--<div id="FilesScanned"></div>-->
 		<input type="button" value="Save" onclick="save()"/>
 		<input type="button" value="Download" onclick="download()"/>
 		<input type="button" value="Load" onclick="scan()"/>
 		<div id="ScannedFiles"></div>
 	</div>
-	<!--Temporary Frame Selection-->
 	
 </body>
 	

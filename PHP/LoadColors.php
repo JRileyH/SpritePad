@@ -10,6 +10,6 @@
 	}
 	else
 	{
-		echo "newbies";
+		echo "newbie";
 	}
 ?>

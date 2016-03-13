@@ -7,92 +7,8 @@
 
 	player.rescale(10);
 
-
-/*
-//Example Setup//
-//ONE//
-pad.pixels()[pad.findPixel(7, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 2)].setColor("#000000");
-pad.pixels()[pad.findPixel(6, 2)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 3)].setColor("#000000");
-pad.pixels()[pad.findPixel(5, 3)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 4)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 5)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 6)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 7)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 8)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 9)].setColor("#000000");
-pad.pixels()[pad.findPixel(7,10)].setColor("#000000");
-pad.pixels()[pad.findPixel(7,11)].setColor("#000000");
-pad.pixels()[pad.findPixel(5,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(6,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(7,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(8,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(9,12)].setColor("#000000");
-
-pad.addFrame();
-pad.selectFrame(1);
-
-//TWO//
-pad.pixels()[pad.findPixel(6, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(8, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(5, 2)].setColor("#000000");
-pad.pixels()[pad.findPixel(9, 2)].setColor("#000000");
-pad.pixels()[pad.findPixel(4, 3)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,3)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,4)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,5)].setColor("#000000");
-pad.pixels()[pad.findPixel(9, 6)].setColor("#000000");
-pad.pixels()[pad.findPixel(8, 7)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 8)].setColor("#000000");
-pad.pixels()[pad.findPixel(6, 9)].setColor("#000000");
-pad.pixels()[pad.findPixel(5,10)].setColor("#000000");
-pad.pixels()[pad.findPixel(4,11)].setColor("#000000");
-pad.pixels()[pad.findPixel(4,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(5,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(6,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(7,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(8,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(9,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,12)].setColor("#000000");
-
-pad.addFrame();
-pad.selectFrame(2);
-
-//THREE//
-pad.pixels()[pad.findPixel(6, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(8, 1)].setColor("#000000");
-pad.pixels()[pad.findPixel(5, 2)].setColor("#000000");
-pad.pixels()[pad.findPixel(9, 2)].setColor("#000000");
-pad.pixels()[pad.findPixel(4, 3)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,3)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,4)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,5)].setColor("#000000");
-pad.pixels()[pad.findPixel(9, 6)].setColor("#000000");
-pad.pixels()[pad.findPixel(6, 7)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 7)].setColor("#000000");
-pad.pixels()[pad.findPixel(8, 7)].setColor("#000000");
-pad.pixels()[pad.findPixel(9, 8)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,9)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,10)].setColor("#000000");
-pad.pixels()[pad.findPixel(10,11)].setColor("#000000");
-pad.pixels()[pad.findPixel(4,11)].setColor("#000000");
-pad.pixels()[pad.findPixel(9,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(5,12)].setColor("#000000");
-pad.pixels()[pad.findPixel(6, 13)].setColor("#000000");
-pad.pixels()[pad.findPixel(7, 13)].setColor("#000000");
-pad.pixels()[pad.findPixel(8, 13)].setColor("#000000");
-
-pad.selectFrame(0);
-//Example Setup//
-*/
-
 console.log("PadJS Loaded");
 
-
-//<!--Temporary Frame Selection-->//
 function add()
 {
 	pad.addFrame();
@@ -154,7 +70,6 @@ function scan()
 			},
 			success: function(data)
 			{
-				alert(data);
 				$('#ScannedFiles').html(data);
 			},
 			error: function(data)
@@ -205,4 +120,3 @@ function download()
 	var data = "text/json;charset=utf-8,"+encodeURIComponent(json);
 	$('<a id="DownloadLink" href="data:'+data+'" download="'+$('#FileName').val()+'.json">Download</a>').appendTo('#ButtonBox');
 }
-//<!--Temporary Frame Selection-->//

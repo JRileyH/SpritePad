@@ -115,9 +115,34 @@ oPad.prototype.findPixel = function(x, y)
 
 oPad.prototype.reload = function()
 {
+	var showGhost = (this.numberOfFrames() > 1 && $('#GhostOn').prop('checked'));
+	
+	if(showGhost)
+	{
+		var ghostFrame;
+		if(this._selected == 0)
+		{
+			ghostFrame = this.pixels(this.numberOfFrames()-1);
+		}
+		else
+		{
+			ghostFrame = this.pixels(this._selected-1);
+		}
+	}
+	
 	this.pixels().forEach(function(element, index, array)
 	{
+		$("#"+index).css("background", "none");
 		$("#"+index).css("background-color", element.color());
+		if(showGhost)
+		{
+			var ghostPixel = ghostFrame[index];
+			if(ghostPixel.color() != "transparent")
+			{
+				$("#"+index).css("background", "linear-gradient(transparent, "+ghostPixel.color()+")");
+			}
+		}
+
 	});
 }
 
