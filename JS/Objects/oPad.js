@@ -133,7 +133,6 @@ oPad.prototype.reload = function()
 	this.pixels().forEach(function(element, index, array)
 	{
 		$("#"+index).css("background", "none");
-		$("#"+index).css("background-color", element.color());
 		if(showGhost)
 		{
 			var ghostPixel = ghostFrame[index];
@@ -142,7 +141,7 @@ oPad.prototype.reload = function()
 				$("#"+index).css("background", "linear-gradient(transparent, "+ghostPixel.color()+")");
 			}
 		}
-
+		$("#"+index).css("background-color", element.color());
 	});
 }
 
